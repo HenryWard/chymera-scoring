@@ -1,24 +1,32 @@
 #!/usr/bin/env Rscript
 
-source("/project/csbio/henry/Documents/libraries/lib_util.R")
-.libPaths("/project/csbio/henry/Documents/libraries/R")
-packages <- c("ggplot2", "ggthemes", "caret")
-for (p in packages) {
-  library(p, character.only = TRUE)
-}
+library(ggplot2)
+library(ggthemes)
+
+######
+# PARAMETER SETTING
+######
+
+# MODIFY THE FOUR VARIABLES BELOW TO RUN THIS SCRIPT ON YOUR MACHINE!!!
+
+# Sets working directory, input file location, output folder path, and cell line.
+# Cell line must be one of "hap1", "rpe1", or "hap1_torin"
+setwd("/project/csbio/henry/Documents/projects/dual_guide/chymera_github")
+input_file <- file.path("..", "input", "torin_norm_counts.txt")
+output_folder <- file.path("output", "paralog_rpe1")
+which_cell_line <- "rpe1"
 
 ######
 # MAIN SCRIPT
 ######
 
-
-# Sets working directory and important parameters
-setwd("/project/csbio/henry/Documents/projects/dual_guide/chymera_github")
-output_folder <- file.path("output", "paralog_rpe1")
-which_cell_line <- "rpe1"
+# Makes output folder if it doesn't exist
+if(!dir.exists(output_folder)) {
+  dir.create(output_folder, recursive = TRUE)
+}
 
 # Loads in data
-torin <- read.csv(file.path("..", "input", "torin_norm_counts.txt"), sep = "\t", stringsAsFactors = FALSE)
+torin <- read.csv(file.path(input_file), sep = "\t", stringsAsFactors = FALSE)
 paralogs <- torin[torin$Library == "Paralogs",]
 paralogs <- paralogs[,c("Gene_symbol1", "Gene_symbol2", 
                         "HAP1_Torin_T12_logFC", "HAP1_Torin_T18_logFC",
