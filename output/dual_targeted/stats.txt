@@ -1,0 +1,4 @@
+Number of early genes with p-val < 0.01: 395
+Number of late genes with p-val < 0.01: 500
+Number of early genes with FDR < 0.01: 117
+Number of late genes with FDR < 0.01: 140

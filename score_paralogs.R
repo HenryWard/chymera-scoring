@@ -7,12 +7,11 @@ library(ggthemes)
 # PARAMETER SETTING
 ######
 
-# MODIFY THE FOUR VARIABLES BELOW TO RUN THIS SCRIPT ON YOUR MACHINE!!!
+# MODIFY THE THREE VARIABLES BELOW TO RUN THIS SCRIPT ON YOUR MACHINE!!!
 
 # Sets working directory, input file location, output folder path, and cell line.
 # Cell line must be one of "hap1", "rpe1", or "hap1_torin"
 setwd("/project/csbio/henry/Documents/projects/dual_guide/chymera_github")
-input_file <- file.path("..", "input", "torin_norm_counts.txt")
 output_folder <- file.path("output", "paralog_rpe1")
 which_cell_line <- "rpe1"
 
@@ -26,6 +25,7 @@ if(!dir.exists(output_folder)) {
 }
 
 # Loads in data
+input_file <- file.path("input", "torin_norm_counts.txt")
 torin <- read.csv(file.path(input_file), sep = "\t", stringsAsFactors = FALSE)
 paralogs <- torin[torin$Library == "Paralogs",]
 paralogs <- paralogs[,c("Gene_symbol1", "Gene_symbol2", 
