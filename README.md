@@ -5,7 +5,7 @@ available to read at *insert link here*.
 
 To run the script "score_paralogs.R" and generate scores for the paralog CHyMErA libraries, perform the following steps: 
 
-1. Download the original screening data from *insert link here*. 
+1. Download the original screening data from https://crispr.ccbr.utoronto.ca/chymera/#. 
 2. Make sure that you have R version > 3.6.3 installed, along with the packages *ggplot2* and *ggthemes*.
 3. Change the four parameters at the top of the script to match your local machine. 
     1. `setwd` takes the path of the *chymera-scoring* folder. 
