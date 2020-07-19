@@ -1,7 +1,7 @@
 # chymera-scoring
 
 This repository contains all scripts used to score data from the paper "Genetic interaction mapping and exon-resolution functional genomics with a hybrid Cas9–Cas12a platform", 
-available to read at *insert link here*. 
+available to read at https://crispr.ccbr.utoronto.ca/chymera/index.html. 
 
 To run the script "score_paralogs.R" and generate scores for the paralog CHyMErA library, perform the following steps: 
 
